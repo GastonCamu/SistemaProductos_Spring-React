@@ -33,7 +33,7 @@ public class Producto {
     @Column(name = "imagen_url", nullable = false)
     private String imagenUrl;
 
-    @Column(name = "fecha_creacion", nullable = false)
+    @Column(name = "fecha_creacion", nullable = false, updatable = false)
     private LocalDateTime fechaCreacion;
 
     @Column(name = "fecha_actualizacion", nullable = false)
@@ -42,4 +42,10 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)
     private CatProducto catProducto;
+
+    @PrePersist
+    protected void onCreate() {
+        this.fechaCreacion = LocalDateTime.now();
+        this.fechaActualizacion = this.fechaCreacion;
+    }
 }
