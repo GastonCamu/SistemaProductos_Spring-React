@@ -48,4 +48,9 @@ public class Producto {
         this.fechaCreacion = LocalDateTime.now();
         this.fechaActualizacion = this.fechaCreacion;
     }
+
+    @PreUpdate
+    protected void onUpdate() {
+        fechaActualizacion = LocalDateTime.now();
+    }
 }

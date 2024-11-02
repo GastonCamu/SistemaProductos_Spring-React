@@ -26,4 +26,6 @@ public class ProductoDTO {
     private LocalDateTime fechaActualizacion;
 
     private Long idCatProducto;
+
+    private String nombreCatProducto;
 }
